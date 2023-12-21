@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кількість цифр у числі</title>
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+ 
+<header>
+    <p style="text-align: center; font-size: 40px;" >length of number</p>
+</header>
+<main  class="mainStyle">
+  
+    
+    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+</head>
+<body>
+<div style="margin: auto; text-align: center;">
+<label for="numberInput">Введіть число:</label>
+<input type="number" id="numberInput" placeholder="Наприклад: 12345">
+
+<button onclick="countDigits()">Обчислити кількість цифр</button>
+</div>
+<p id="result" style="text-align: center;"></p>
+
+<script>
+    function countDigits() {
+        const numberInput = document.getElementById('numberInput');
+        const resultParagraph = document.getElementById('result');
+
+        const inputValue = numberInput.value;
+
+        // Перевірка, чи введено число
+        if (isNaN(inputValue)) {
+            resultParagraph.textContent = 'Будь ласка, введіть коректне число.';
+            return;
+        }
+
+        // Обчислення кількості цифр
+        const digitCount = String(Math.abs(inputValue)).length;
+
+        // Виведення результату
+        resultParagraph.textContent = `Кількість цифр у числі ${inputValue}: ${digitCount}`;
+    }
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</body>
+</html>

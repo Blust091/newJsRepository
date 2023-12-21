@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      /*  let input;
+
+while (true) {
+  input = prompt("Введіть число:");
+  if (!isNaN(input)) {
+    alert("Ви ввели число: " + input);
+    break;
+  } else {
+    alert("Будь ласка, введіть число.");
+  }
+}
+let firstNumber = prompt("Введіть перше число в межах від 0 до 1:");
+if (!isNaN(firstNumber) && firstNumber >= 0 && firstNumber <= 1) {
+  let secondNumber = prompt("Введіть друге число в межах від 0 до 1:");
+  if (!isNaN(secondNumber) && secondNumber >= 0 && secondNumber <= 1) {
+    let sum = parseFloat(firstNumber) + parseFloat(secondNumber);
+    alert("Сума введених чисел: " + sum.toFixed(2));
+  } else {
+    alert("Будь ласка, введіть число в межах від 0 до 1.");
+  }
+} else {
+  alert("Будь ласка, введіть число в межах від 0 до 1.");
+}*/
+let firstTwoDigitNumber = Math.floor(Math.random() * 90) + 10;
+let secondTwoDigitNumber = Math.floor(Math.random() * 90) + 10;
+document.write("Перше двозначне число: " + firstTwoDigitNumber + "<br>");
+document.write("Друге двозначне число: " + secondTwoDigitNumber + "<br>");
+let lowerLimit = Math.min(firstTwoDigitNumber, secondTwoDigitNumber);
+let upperLimit = Math.max(firstTwoDigitNumber, secondTwoDigitNumber);
+var generatedNumbers = [];
+for (let i = 0; i < 3; i++) {
+  let randomTwoDigitNumber = Math.floor(Math.random() * (upperLimit - lowerLimit + 1)) + lowerLimit;
+  generatedNumbers.push(randomTwoDigitNumber);
+}
+document.write("Три згенерованих двозначних числа в діапазоні [" + lowerLimit + ", " + upperLimit + "]:<br>");
+for (let j = 0; j < generatedNumbers.length; j++) {
+  document.write(generatedNumbers[j] + "<br>");
+}
+    </script>
+</body>
+</html>

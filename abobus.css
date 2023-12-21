@@ -1,0 +1,52 @@
+
+}
+table{
+	border: double 4px green;
+	width: 50%;
+	font-size: 24px;
+	text-align: center;
+	padding: 300px;
+}
+th, td{
+	border: solid 3px pink;
+	height: 1cm;
+	width: 25%px;
+	text-align: center;
+}
+.Kira1:hover{
+    background-color: magenta;
+	background-size: cover;
+	text-transform: uppercase;
+}
+caption{
+		collor: red;
+		font-size: 2em;
+		text-transform: uppercase;
+		background: linear-gradient(red,orange,yellow,blue,violet,indigo);
+}
+p:hover{
+	background-image: url(animation.gif);
+	background-size: cover;
+	text-transform: uppercase;
+	height: 700px;
+}
+p{
+	text-align: center;
+}
+.Kira2:hover{
+    background-color: navy;
+	background-size: cover;
+	text-transform: uppercase;
+}
+.Kira3:hover{
+	background-size: cover;
+	text-transform: uppercase;
+}
+.Kira4:hover{
+    background-color: lavender;
+	background-size: cover;
+	text-transform: uppercase;
+}
+.Kira3{
+	background-size: cover;
+}

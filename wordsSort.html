@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сортування слів</title>
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+ 
+<header>
+    <p style="text-align: center; font-size: 40px;" >Sort by alphabet\length</p>
+</header>
+<main  class="mainStyle">
+  
+    
+    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+</head>
+<body>
+<div style="margin: auto; text-align: center;">
+<label for="wordsInput" style="text-align: center;">Введіть слова (через кому):</label> <input type="text" id="wordsInput" placeholder="Наприклад: apple, banana, cherry"> <button onclick="sortWords()">Сортувати</button>
+ </div>
+<pre id="result"></pre>
+
+<script>
+    function sortWords() {
+        const wordsInput = document.getElementById('wordsInput');
+        const resultPre = document.getElementById('result');
+
+        const words = wordsInput.value.split(',').map(word => word.trim());
+
+        // Сортування за кількістю символів
+        const sortedByLength = words.slice().sort((a, b) => a.length - b.length);
+
+        // Сортування за алфавітом
+        const sortedAlphabetically = words.slice().sort();
+
+        // Виведення результату
+        resultPre.textContent = `
+            Сортування за кількістю символів:
+            ${sortedByLength.join('\n')}
+
+            Сортування за алфавітом:
+            ${sortedAlphabetically.join('\n')}
+        `;
+    }
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</body>
+</html>

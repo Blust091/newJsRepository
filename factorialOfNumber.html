@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обчислення факторіалу</title>
+  <link rel="stylesheet" type="text/css" href="nemWorks.css">
+ 
+<header>
+    <p style="text-align: center; font-size: 40px;" >Complements genetaror</p>
+</header>
+<main  class="mainStyle">
+  
+    
+    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+</head>
+<body>
+
+<div id="factorialCalculator" style="text-align: center; margin-top: 20px;">
+  <button onclick="calculateFactorial()">Обчислити факторіал</button>
+  <div id="factorialResults" style="display: none;">
+    <!-- Результати обчислення факторіалу будуть тут -->
+  </div>
+</div>
+
+<script>
+  function calculateFactorial() {
+    var number = prompt("Введіть число для обчислення факторіалу:");
+
+    // Перевірити, чи введено число та воно не від'ємне
+    if (!isNaN(number) && number >= 0) {
+      // Використання змінної для зберігання факторіалу
+      var factorialResult = 1;
+
+      // Обчислення факторіалу за допомогою циклу
+      for (var i = 2; i <= parseInt(number); i++) {
+        factorialResult *= i;
+      }
+
+      // Вивести результати і змінити видимість блоків
+      document.getElementById("factorialResults").innerHTML = "Факторіал числа " + number + " дорівнює " + factorialResult;
+      document.getElementById("factorialResults").style.display = "block";
+    } else {
+      alert("Будь ласка, введіть не від'ємне число.");
+    }
+  }
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</body>
+</html>

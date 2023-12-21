@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анімація з рухом та зміною URL</title>
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+ 
+<header>
+    <p style="text-align: center; font-size: 40px;" >Custom animation</p>
+</header>
+<main  class="mainStyle">
+  
+    
+    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+</head>
+<body>
+
+
+<input type="text" id="imageUrlInput" placeholder="Введіть URL зображення"  style="text-align: center; margin: auto;">
+
+<canvas id="animationCanvas4" width="400" height="200" style="border:1px solid #000; text-align: center; margin-top: 20px;" ></canvas>
+
+<script>
+    const canvas4 = document.getElementById('animationCanvas4');
+    const ctx4 = canvas4.getContext('2d');
+
+    let x4 = 0; // Початкова позиція по осі X
+
+    function drawImageWithUrl() {
+        const imageUrlInput = document.getElementById('imageUrlInput');
+        const imageUrl = imageUrlInput.value;
+
+        // Перевірка, чи введено коректний URL
+        if (!imageUrl || !imageUrl.match(/\.(jpeg|jpg|gif|png)$/)) {
+            console.error('Введіть коректний URL для зображення.');
+            return;
+        }
+
+        ctx4.clearRect(0, 0, canvas4.width, canvas4.height); // Очистка канвасу перед кожним кадром
+        const image4 = new Image();
+
+        // Обробник завантаження зображення
+        image4.onload = function() {
+            ctx4.drawImage(image4, x4, 75, 50, 50); // Малювання зображення на канвасі
+            x4 += 5; // Інкрементуємо позицію по осі X
+
+            // Перевірка, чи зображення вийшло за межі канвасу
+            if (x4 > canvas4.width) {
+                x4 = -50; // Повертаємо зображення на початок
+            }
+        };
+
+        // Обробник помилок завантаження зображення
+        image4.onerror = function() {
+            console.error('Помилка завантаження зображення. Використано стандартне зображення.');
+            imageUrlInput.value = ''; // Очистити поле введення
+            image4.src = 'https://placekitten.com/50/50'; // Завантажити стандартне зображення
+        };
+
+        image4.src = imageUrl; // URL для зображення (введений користувачем)
+    }
+
+    setInterval(drawImageWithUrl, 30); // Встановлюємо інтервал для виклику функції кожні 30 мілісекунд
+
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</body>
+</html>

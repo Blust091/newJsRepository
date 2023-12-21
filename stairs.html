@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генератор трикутника</title>
+  <link rel="stylesheet" type="text/css" href="nemWorks.css">
+ 
+<header>
+    <p style="text-align: center; font-size: 40px;" > генератор ялинки</p>
+</header>
+<main  class="mainStyle">
+  
+    
+    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+</head>
+<body>
+
+<div id="triangleGenerator"  style="margin: center;" class="FirstMainDiv">
+  <button onclick="generateTriangle()" class="mainButton" style="margin: center;  ">Генерувати сходинки ялинки (кількість)</button>
+  <div id="triangleResults" style="display: none;">
+    <!-- Результати генерації трикутника будуть тут -->
+  </div>
+</div>
+
+<script>
+  function generateTriangle() {
+    let rowCount = prompt("Введіть кількість рядів:");
+
+    rowCount = parseInt(rowCount);
+
+    if (!isNaN(rowCount) && rowCount > 0) {
+      let triangle = "";
+      for (let i = 1; i <= rowCount; i++) {
+        for (let j = 1; j <= i; j++) {
+          triangle += "*";
+        }
+        triangle += "<br>";
+      }
+
+      // Вивести результати і змінити видимість блоків
+      document.getElementById("triangleResults").innerHTML = triangle;
+      document.getElementById("triangleResults").style.display = "block";
+    } else {
+      alert("Будь ласка, введіть додатне число для кількості рядів.");
+    }
+  }
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</body>
+</html>

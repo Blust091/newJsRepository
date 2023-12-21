@@ -1,0 +1,18 @@
+
+img{
+	width: 200px;
+	height: 200px;
+
+}
+p{
+	font-size: 110px;
+}
+.Kira1{
+	padding: 30px;
+}
+.Kira2::marker{ 
+	collor: red;
+}
+ul{
+	margin-left: 50px;
+}

@@ -1,0 +1,56 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         /*let inputText = prompt("Введіть текст:");
+        if (inputText !== null) {
+          if (inputText.trim() !== "") {
+            let modifiedText = inputText.charAt(0).toUpperCase() + inputText.slice(1);
+            alert("Ваш текст з першою великою буквою:\n" + modifiedText);
+          } else {
+            alert("Будь ласка, введіть текст.");
+          }
+        } else {
+          alert("Ви відмінили введення.");
+        }
+        let fullText = "бредуть бобри в сирі бори. бобри хоробрі, а для бобрят добрі";
+let searchString = prompt("Введіть шуканий підрядок з тексту: бредуть бобри в сирі бори. бобри хоробрі, а для бобрят добрі");
+if (searchString !== null && searchString.trim() !== "") {
+  let startPosition = 0;
+  let foundPositions = [];
+  while ((startPosition = fullText.indexOf(searchString, startPosition)) !== -1) {
+    foundPositions.push(startPosition);
+    startPosition += searchString.length;
+  }
+  if (foundPositions.length > 0) {
+    alert("Знайдені підрядки в тексті:\n" + foundPositions.join(", "));
+  } else {
+    alert("Підрядок \"" + searchString + "\" не знайдений в тексті.");
+  }
+} else {
+  alert("Ви відмінили введення або не ввели підрядок.");
+}*/
+function hasKeywords(text) {
+  let lowercaseText = text.toLowerCase();
+  return lowercaseText.includes("безкоштовно") || lowercaseText.includes("гарантія");
+}
+let userInput = prompt("Введіть текст:");
+if (userInput !== null && userInput.trim() !== "") {
+  let result = hasKeywords(userInput);
+  if (result) {
+    alert("Текст містить слова 'безкоштовно' або 'гарантія'.");
+  } else {
+    alert("Текст не містить слова 'безкоштовно' або 'гарантія'.");
+  }
+} else {
+  alert("Ви відмінили введення або не ввели текст.");
+}
+    </script>
+</body>
+</html>

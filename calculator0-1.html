@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор</title>
+  <style type="text/css">
+ 
+  </style>
+  <body>
+  
+  <header>
+      <p style="text-align: center; font-size: 40px;" >калькулятор 0-1</p>
+  </header>
+  <main  class="mainStyle">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <link rel="stylesheet" type="text/css" href="nemWorks.css">
+</head>
+<body>
+
+<div id="calculatorForm" style="margin: center;" class="FirstMainDiv">
+  <button onclick="toggleCalculator()" class="mainButton" style="margin: center;  ">Калькулятор</button>
+</div>
+
+<div id="inputFields" style="display: none; text-align: center; margin-top: 35px;">
+  <label for="firstNumber">Введіть перше число в межах від 0 до 1:</label>
+  <input type="number" step="0.01" id="firstNumber" min="0" max="1">
+  
+  <label for="secondNumber">Введіть друге число в межах від 0 до 1:</label>
+  <input type="number" step="0.01" id="secondNumber" min="0" max="1">
+
+  <button onclick="calculateSum()">Обчислити суму</button>
+</div>
+
+<div id="result" style="display: none;">
+  <p id="resultText"></p>
+  <button onclick="resetCalculator()">Згорнути</button>
+</div>
+
+<script>
+  function toggleCalculator() {
+    // Змінити видимість блоків при натисканні кнопки
+    document.getElementById("calculatorForm").style.display = "none";
+    document.getElementById("inputFields").style.display = "block";
+  }
+
+  function calculateSum() {
+    let firstNumber = document.getElementById("firstNumber").value;
+    let secondNumber = document.getElementById("secondNumber").value;
+
+    if (!isNaN(firstNumber) && firstNumber >= 0 && firstNumber <= 1 &&
+        !isNaN(secondNumber) && secondNumber >= 0 && secondNumber <= 1) {
+      let sum = parseFloat(firstNumber) + parseFloat(secondNumber);
+      document.getElementById("resultText").innerText = "Сума введених чисел: " + sum.toFixed(2);
+
+      // Показати результати і змінити видимість блоків
+      document.getElementById("inputFields").style.display = "none";
+      document.getElementById("result").style.display = "block";
+    } else {
+      alert("Будь ласка, введіть числа в межах від 0 до 1.");
+    }
+  }
+
+  function resetCalculator() {
+    // Скинути значення та показати початкову форму
+    document.getElementById("firstNumber").value = "";
+    document.getElementById("secondNumber").value = "";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("calculatorForm").style.display = "block";
+    document.getElementById("inputFields").style.display = "none";
+  }
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</body>
+</html>

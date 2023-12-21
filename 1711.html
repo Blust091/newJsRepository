@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+   let totalPurchase = 0;
+while (totalPurchase < 1000) { 
+  let purchaseAmount = prompt("Введіть суму покупок:");
+  if (!isNaN(purchaseAmount) && purchaseAmount > 0) {
+    totalPurchase += parseFloat(purchaseAmount);
+    if (totalPurchase < 1000) {
+      alert("Ваша сума менше за 1000. Збільшіть її.");
+    }
+  } else {
+    alert("Будь ласка, введіть додатнє число.");
+  }
+}
+alert("Ви досягли або перевищили суму 1000. Загальна сума покупок: " + totalPurchase.toFixed(2));
+let number = prompt("Введіть число для обчислення факторіалу:");
+if (!isNaN(number) && number >= 0) {
+  let factorialResult = 1;
+  for (let i = 2; i <= parseInt(number); i++) {
+    factorialResult *= i;
+  }
+  alert("Факторіал числа " + number + " дорівнює " + factorialResult);
+} else {
+  alert("Будь ласка, введіть не від'ємне число.");
+}
+</script>
+</body>
+</html>

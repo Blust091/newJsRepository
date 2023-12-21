@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+  
+// сходинки
+/*let rowCount = prompt("Введите количество рядов:");
+
+
+rowCount = parseInt(rowCount);
+
+
+if (!isNaN(rowCount) && rowCount > 0) {
+  for (let i = 1; i <= rowCount; i++) {
+    for (let j = 1; j <= i; j++) {
+      document.write("*");
+    }
+    document.write("<br>");
+  }
+} else {
+  alert("будь ласка введіть число");
+}*/
+
+// загадка з числами
+let lowerLimit = prompt("Введіть нижню межу діапазону:");
+let upperLimit = prompt("Введіть верхню межу діапазону:");
+if (!isNaN(lowerLimit) && !isNaN(upperLimit)) {
+  lowerLimit = parseFloat(lowerLimit);
+  upperLimit = parseFloat(upperLimit);
+  if (lowerLimit > upperLimit) {
+    let temp = lowerLimit;
+    lowerLimit = upperLimit;
+    upperLimit = temp;
+  }
+  let randomNumber = Math.floor(Math.random() * (upperLimit - lowerLimit + 1)) + lowerLimit;
+  let guess;
+  while (true) {
+    guess = prompt("Вгадайте число від " + lowerLimit + " до " + upperLimit + ":");
+    if (guess === null) {
+      alert("Ви відмінили гру. Загадане число було: " + randomNumber);
+      break;
+    }
+    if (!isNaN(guess)) {
+      guess = parseFloat(guess);
+      if (guess < lowerLimit || guess > upperLimit) {
+        alert("Ваше число не з діапазону. Спробуйте ще раз.");
+      } else if (guess === randomNumber) {
+        alert("Вітаємо! Ви вгадали число.");
+        break;
+      } else {
+        alert(guess < randomNumber ? "Ваше число менше загаданого." : "Ваше число більше загаданого.");
+      }
+    } else {
+      alert("Будь ласка, введіть число.");
+    }
+  }
+} else {
+  alert("Будь ласка, введіть числові значення для обох меж діапазону.");
+}
+//таблиця множення
+/*let number = prompt("Введіть число від 1 до 10 для створення таблиці множення:");
+if (!isNaN(number) && number >= 1 && number <= 10) {
+  document.write("<h2>Таблиця множення для числа " + number + ":</h2>");
+  document.write("<table border='1'>");
+  for (var i = 1; i <= 10; i++) {
+    document.write("<tr>");
+    document.write("<td>" + number + " * " + i + "</td>");
+    document.write("<td>" + "=" + "</td>");
+    document.write("<td>" + number * i + "</td>");
+    document.write("</tr>");
+  }
+  document.write("</table>");
+} else {
+  alert("Будь ласка, введіть число від 1 до 10.");
+}*/
+
+
+
+
+
+
+    </script>
+    
+
+</body>
+</html>

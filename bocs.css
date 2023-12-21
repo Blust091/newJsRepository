@@ -1,0 +1,37 @@
+
+		
+
+		}
+	#pon{
+		width: 200px;
+		    height: 100px;
+		     border-right: dotted 5px darkgrey;
+		      border-bottom: dotted 5px  darkgrey;
+
+
+		}
+		#pop,#pup,#pap{
+			border: solid 4px black;
+		}
+		#pop{
+			width: 500px;
+			height: 500px;
+		}
+		#pup{
+			width: 300px;
+			height: 300px;
+			margin: 100px;
+		}
+		#pap{
+			width: 200px;
+			height: 200px;
+            
+		   display: flex;
+		   justify-content: center;
+		   align-items: center;
+		   margin: auto;
+		   text-align: center;
+			
+		}
+       
+

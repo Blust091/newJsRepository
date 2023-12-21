@@ -1,0 +1,69 @@
+.mainStyle {
+    width: 80%;
+    height: 1150px;
+    margin: auto;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background: inherit;
+    overflow: hidden;
+  }
+  
+  .mainStyle:before {
+    content: "";
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    filter: blur(10px);
+    margin: -20px;
+  }
+  body {
+    background-image: url(https://www.meme-arsenal.com/memes/1d46c889c95dad559fd46706b66d824d.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .mainButton {
+    width: 300px;
+    height: 50px;
+    margin: auto;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background: inherit;
+    overflow: hidden;
+    font-family: 'Ubuntu';
+    font-size: 20px;
+    margin-top: 20px;
+    
+  }
+  
+    .mainButton:before {
+      content: "";
+      position: absolute;
+      background: inherit;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+      filter: blur(10px);
+      margin: -20px;
+    }
+  .FirstMainDiv{
+    margin: center;
+    text-align: center;
+    
+  }

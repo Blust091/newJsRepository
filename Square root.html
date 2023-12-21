@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корені квадратного рівняння</title>
+  <link rel="stylesheet" type="text/css" href="nemWorks.css">
+ 
+<header>
+    <p style="text-align: center; font-size: 40px;" >Square root</p>
+</header>
+<main  class="mainStyle">
+  
+    
+    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+</head>
+<body>
+    <p style="text-align: center;">b * b - 4 * a * c</p>
+
+    
+    <div id="quadraticEquationSolver" style="text-align: center;">
+      <label for="aCoefficient">Коефіцієнт a:</label>
+      <input type="number" id="aCoefficient" placeholder="Введіть коефіцієнт a">
+    
+      <label for="bCoefficient">Коефіцієнт b:</label>
+      <input type="number" id="bCoefficient" placeholder="Введіть коефіцієнт b">
+    
+      <label for="cCoefficient">Коефіцієнт c:</label>
+      <input type="number" id="cCoefficient" placeholder="Введіть коефіцієнт c">
+    
+      <button onclick="calculateRoots()">Розрахувати корені</button>
+    
+      <div id="rootsResult" style="display: none;">
+        <!-- Результати розрахунку коренів будуть тут -->
+      </div>
+    </div>
+    
+    <script>
+      function calculateRoots() {
+        // Отримати значення коефіцієнтів введених користувачем
+        var aCoefficientInput = document.getElementById("aCoefficient");
+        var bCoefficientInput = document.getElementById("bCoefficient");
+        var cCoefficientInput = document.getElementById("cCoefficient");
+    
+        var aCoefficient = parseFloat(aCoefficientInput.value);
+        var bCoefficient = parseFloat(bCoefficientInput.value);
+        var cCoefficient = parseFloat(cCoefficientInput.value);
+    
+        // Перевірити, чи введено числові значення для коефіцієнтів
+        if (!isNaN(aCoefficient) && !isNaN(bCoefficient) && !isNaN(cCoefficient)) {
+          // Обчислити корені рівняння
+          var rootsResult = findRoots(aCoefficient, bCoefficient, cCoefficient);
+    
+          // Вивести результати та змінити видимість блоків
+          var rootsResultDiv = document.getElementById("rootsResult");
+          rootsResultDiv.innerHTML = rootsResult;
+          rootsResultDiv.style.display = "block";
+        } else {
+          alert("Будь ласка, введіть числові значення для коефіцієнтів.");
+        }
+      }
+    
+      function findRoots(a, b, c) {
+        // Обчислення дискримінанту
+        var discriminant = b * b - 4 * a * c;
+    
+        // Перевірка дискримінанту
+        if (discriminant > 0) {
+          var root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+          var root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+          return "Рівняння має два різних корені: x1 = " + root1.toFixed(2) + ", x2 = " + root2.toFixed(2);
+        } else if (discriminant === 0) {
+          var root = -b / (2 * a);
+          return "Рівняння має один подвійний корінь: x = " + root.toFixed(2);
+        } else {
+          return "Рівняння не має дійсних коренів";
+        }
+      }
+    </script>
+    <div id="searchForm" style="margin: center;" class="FirstMainDiv">
+        <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+      </div>
+    
+   
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шахівниця</title>
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+ 
+<header>
+    <p style="text-align: center; font-size: 40px;" >chessboard</p>
+</header>
+<main  class="mainStyle">
+  
+    
+    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+</head>
+<body>
+<div style="margin-right: 50%;">
+<canvas id="chessboard" width="600" height="600" style="border:1px solid #000;   margin-top: 50px; "></canvas>
+</div>
+<script>
+    const canvas = document.getElementById('chessboard');
+    const ctx = canvas.getContext('2d');
+
+    const squareSize = 50; // Розмір одного квадрата
+    const rows = 12;       // Кількість рядків
+    const cols = 12;       // Кількість колонок
+
+    // Функція для малювання шахівниці
+    function drawChessboard() {
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                const x = col * squareSize;
+                const y = row * squareSize;
+
+                // Визначаємо колір кожного квадрата шахівниці
+                const isBlack = (row + col) % 2 === 1;
+
+                // Заливаємо квадрат відповідним кольором
+                ctx.fillStyle = isBlack ? '#000' : '#fff';
+                ctx.fillRect(x, y, squareSize, squareSize);
+
+                // Малюємо рамку квадрата
+                ctx.strokeStyle = '#000';
+                ctx.strokeRect(x, y, squareSize, squareSize);
+            }
+        }
+    }
+
+    // Викликаємо функцію для малювання шахівниці
+    drawChessboard();
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</body>
+</html>

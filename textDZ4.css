@@ -1,0 +1,53 @@
+body{
+	background-color: red;
+}
+P{
+	font-size: 70px;
+}
+.f1{
+	text-decoration: overline;
+	text-decoration-color: aqua;
+}
+.f2{
+	text-decoration: line-through;
+	text-underline-position: unset;
+	text-decoration-color: aqua;
+}
+.f3{
+	text-decoration: underline;
+	text-decoration-color: aqua;
+}
+.kira1{
+	text-underline-position: unset;
+	text-decoration-color: aqua;
+	text-shadow: 8px 5px 3px darkblue;
+}
+.f6{
+	text-decoration-line: unset;
+	text-decoration-line: overline;
+
+}
+.f7{
+	text-decoration-style: wavy;
+	text-decoration-color: darkblue;
+}
+.f5{
+	text-shadow: 6PX 7PX 6PX;
+}
+.f8{
+	text-decoration: none;
+}
+.f9{
+	text-transform: uppercase;
+}
+.f10{
+	text-transform: capitalize;
+}
+.f11{
+	text-shadow: 4px 4px 5px red;
+}
+.f12{
+	word-spacing: 15px;
+	letter-spacing: 8px;
+}
+

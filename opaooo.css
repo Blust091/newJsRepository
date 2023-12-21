@@ -1,0 +1,15 @@
+body{
+	background-color: lightslategrey;
+}
+ul,ol{
+	color: lightgoldenrodyellow;
+	font-size: 24px;
+	
+}
+ul li::marker{
+	color: blue;
+	font-size: 1.1em;
+}
+ul li{
+	padding-left: 15px;
+}

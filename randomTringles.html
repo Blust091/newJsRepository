@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+ 
+<header>
+    <p style="text-align: center; font-size: 40px;" > 10 random tringles</p>
+</header>
+<main  class="mainStyle">
+  
+    
+    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+</head>
+<body>
+    <div id="container" style="border: solid 2px; width: 1000px; height: 1000px; margin: auto; margin-top: 50px;"></div>
+    <script>
+       
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function getRandomColor() {
+        let r = getRandomNumber(0, 255);
+        let g = getRandomNumber(0, 255);
+        let b = getRandomNumber(0, 255);
+        return `rgb(${r},${g},${b})`;
+    }
+
+    function drawRandomTriangle(container, color) {
+        let svgNS = "http://www.w3.org/2000/svg";
+        let svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("width", "100%");
+        svg.setAttribute("height", "100%");
+        svg.style.position = "absolute";
+
+        let points = [];
+        for (let i = 0; i < 3; i++) {
+            let x = getRandomNumber(0, 1000);
+            let y = getRandomNumber(0, 1000);
+            points.push(`${x},${y}`);
+        }
+
+        let polygon = document.createElementNS(svgNS, "polygon");
+        polygon.setAttribute("points", points.join(" "));
+        polygon.setAttribute("fill", color);
+
+        svg.appendChild(polygon);
+        container.appendChild(svg);
+    }
+    let numberOfTriangles = 10;
+    let container = document.getElementById("container");
+    for (let i = 0; i < numberOfTriangles; i++) {
+        let randomColor = getRandomColor();
+        drawRandomTriangle(container, randomColor);
+    }
+    let canvas = document.getElementById('chessboard');
+    let ctx = canvas.getContext('2d');
+
+    let squareSize = 50; 
+    let rows = 8;      
+    let cols = 8; 
+    </script>
+    <div id="searchForm" style="margin: center;" class="FirstMainDiv">
+        <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+      </div>
+    
+</body>
+</html>

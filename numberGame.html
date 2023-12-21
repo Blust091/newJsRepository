@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гра "Вгадай число"</title>
+  <link rel="stylesheet" type="text/css" href="nemWorks.css">
+<header>
+    <p style="text-align: center; font-size: 40px;" >Number game</p>
+</header>
+<main  class="mainStyle">    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+</head>
+<body>
+
+<div id="numberGuessGame"   style="margin: center;" class="FirstMainDiv">
+  <button onclick="startNumberGuessGame()" class="mainButton" style="margin: center;  ">Грати в "Вгадай число"</button>
+  <div id="numberGuessResults" style="display: none;">
+    <!-- Результати гри будуть тут -->
+  </div>
+</div>
+
+<script>
+  function startNumberGuessGame() {
+    let lowerLimit = prompt("Введіть нижню межу діапазону:");
+    let upperLimit = prompt("Введіть верхню межу діапазону:");
+
+    if (!isNaN(lowerLimit) && !isNaN(upperLimit)) {
+      lowerLimit = parseFloat(lowerLimit);
+      upperLimit = parseFloat(upperLimit);
+
+      if (lowerLimit > upperLimit) {
+        let temp = lowerLimit;
+        lowerLimit = upperLimit;
+        upperLimit = temp;
+      }
+
+      let randomNumber = Math.floor(Math.random() * (upperLimit - lowerLimit + 1)) + lowerLimit;
+      let guess;
+      let attemptCount = 0;
+
+      while (true) {
+        guess = prompt("Вгадайте число від " + lowerLimit + " до " + upperLimit + ": (спроба №" + (attemptCount + 1) + ")");
+        attemptCount++;
+
+        if (guess === null) {
+          alert("Ви відмінили гру. Загадане число було: " + randomNumber);
+          break;
+        }
+
+        if (!isNaN(guess)) {
+          guess = parseFloat(guess);
+
+          if (guess < lowerLimit || guess > upperLimit) {
+            alert("Ваше число не з діапазону. Спробуйте ще раз.");
+          } else if (guess === randomNumber) {
+            alert("Вітаємо! Ви вгадали число за " + attemptCount + " спроб.");
+            break;
+          } else {
+            alert(guess < randomNumber ? "Ваше число менше загаданого." : "Ваше число більше загаданого.");
+          }
+        } else {
+          alert("Будь ласка, введіть число.");
+        }
+      }
+    } else {
+      alert("Будь ласка, введіть числові значення для обох меж діапазону.");
+    }
+  }
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+
+</body>
+</html>

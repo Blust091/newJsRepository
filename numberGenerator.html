@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генератор випадкових чисел</title>
+  <header>
+    <p style="text-align: center; font-size: 40px;" >генератор чисел</p>
+</header>
+<main  class="mainStyle">
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+</head>
+<body>
+
+<div id="randomNumberFields" style="margin: center;" class="FirstMainDiv">
+  <button onclick="generateRandomNumbers()" class="mainButton" style="margin: center;  ">Згенерувати випадкові числа</button>
+  <div id="randomNumberResults" style="display: none;">
+    <!-- Результати генерації випадкових чисел будуть тут -->
+  </div>
+</div>
+
+<script>
+  function generateRandomNumbers() {
+    let firstTwoDigitNumber = Math.floor(Math.random() * 90) + 10;
+    let secondTwoDigitNumber = Math.floor(Math.random() * 90) + 10;
+    document.getElementById("randomNumberResults").innerHTML = "Перше двозначне число: " + firstTwoDigitNumber + "<br>";
+    document.getElementById("randomNumberResults").innerHTML += "Друге двозначне число: " + secondTwoDigitNumber + "<br>";
+    
+    let lowerLimit = Math.min(firstTwoDigitNumber, secondTwoDigitNumber);
+    let upperLimit = Math.max(firstTwoDigitNumber, secondTwoDigitNumber);
+    let generatedNumbers = [];
+
+    for (let i = 0; i < 3; i++) {
+      let randomTwoDigitNumber = Math.floor(Math.random() * (upperLimit - lowerLimit + 1)) + lowerLimit;
+      generatedNumbers.push(randomTwoDigitNumber);
+    }
+
+    document.getElementById("randomNumberResults").innerHTML += "Три згенерованих двозначних числа в діапазоні [" + lowerLimit + ", " + upperLimit + "]:<br>";
+
+    for (let j = 0; j < generatedNumbers.length; j++) {
+      document.getElementById("randomNumberResults").innerHTML += generatedNumbers[j] + "<br>";
+    }
+
+    // Показати результати і змінити видимість блоків
+    document.getElementById("randomNumberResults").style.display = "block";
+  }
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</body>
+</html>

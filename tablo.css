@@ -1,0 +1,45 @@
+
+p{
+	font-size: 50px;
+	background-color: pink;
+	color: darkviolet;
+	text-align: center;
+	width: 40%;
+	margin: auto;
+	margin-bottom: 50px;
+}
+table{
+	border: double 4px green;
+	width: 50%;
+	font-size: 24px;
+	margin: auto;
+}
+th, td{
+	border: solid 3px pink;
+	height: 1cm;
+	width: 25%;
+}
+tr:hover{
+	background-color: cyan;
+}
+td:hover, th:hover{
+	background-image: url(https://img1.picmix.com/output/stamp/normal/0/6/8/8/1128860_39177.gif);
+	background-size: cover;
+	text-align: center;
+	font-size: 2em;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+tr:nth-child(odd){
+	background-color: pink;
+}
+tr:nth-child(even){
+	background-color: green;
+	}
+	caption{
+		collor: red;
+		font-size: 2em;
+		text-transform: uppercase;
+		background: linear-gradient(red,orange,yellow,blue,violet,indigo);
+
+	

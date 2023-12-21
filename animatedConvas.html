@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анімація руху зображення</title>
+</head>
+<body>
+
+<canvas id="animationCanvas2" width="400" height="200" style="border:1px solid #000;"></canvas>
+
+<script>
+    let canvas2 = document.getElementById('animationCanvas2');
+    let ctx2 = canvas2.getContext('2d');
+
+    let image2 = new Image();
+    image2.src = 'https://www.meme-arsenal.com/memes/1d46c889c95dad559fd46706b66d824d.jpg'; 
+    let x2 = 0; 
+
+    function drawImage2() {
+        ctx2.clearRect(0, 0, canvas2.width, canvas2.height); 
+        ctx2.drawImage(image2, x2, 75, 50, 50); 
+        x2 += 5; 
+        if (x2 > canvas2.width) {
+            x2 = -50; 
+        }
+    }
+
+    setInterval(drawImage2, 30); 
+
+</script>
+
+</body>
+</html>

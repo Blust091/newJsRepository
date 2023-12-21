@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Злий банкомат</title>
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+ 
+<header>
+    <p style="text-align: center; font-size: 40px;" >Evil ATM</p>
+</header>
+<main  class="mainStyle">
+  
+    
+    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+</head>
+<body>
+<div style="text-align: center;">
+<label for="withdrawalAmount">Сума видачі:</label>
+<input type="number" id="withdrawalAmount" placeholder="Введіть суму">
+<button onclick="withdrawCash()">Видати гроші</button>
+</div>
+<p id="result" style="text-align: center;"></p>
+
+<script>
+    function withdrawCash() {
+        const withdrawalAmountInput = document.getElementById('withdrawalAmount');
+        const resultParagraph = document.getElementById('result');
+
+        const withdrawalAmount = Number(withdrawalAmountInput.value);
+
+        // Перевірка, чи введено число
+        if (isNaN(withdrawalAmount)) {
+            resultParagraph.textContent = 'Будь ласка, введіть коректну суму.';
+            return;
+        }
+
+        // Розрахунок кількості купюр
+        const fiftyBills = Math.floor(withdrawalAmount / 50);
+        const remainder = withdrawalAmount % 50;
+
+        // Злий банкомат: забирає у комісію всю решту
+        const commission = remainder > 0 ? remainder : 0;
+        const amountToDispense = withdrawalAmount - commission;
+
+        // Виведення результату
+        resultParagraph.textContent = `
+            Сума видачі: ${amountToDispense} грн
+            Кількість купюр по 50 грн: ${fiftyBills};
+            Комісія за решту: ${commission} грн
+        `;
+    }
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</body>
+</html>

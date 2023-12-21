@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function number() {
+            let num = +document.number.a.value;
+            let answer1 = document.getElementById("answer1");
+            let answer2 = document.getElementById("answer2");
+            let string1 = "", string2 = "";
+            let numStr = num.toString();
+            if (isNaN(num)) {
+                string1 = string2 = "Ви ввели не число";
+            } else {
+                for (let i = 0; i < numStr.length; i++) {
+                    if (numStr.length % 10 === 1 && numStr.length !== 11) {
+                        string1 = "У числі " + num + " " + numStr.length + " цифра" + "<br>";
+                    } else if (numStr.length % 10 >= 2 && numStr.length % 10 <= 4 && (numStr.length < 10 || numStr.length >= 20)) {
+                        string1 = "У числі " + num + " " + numStr.length + " цифри" + "<br>";
+                    } else {
+                        string1 = "У числі " + num + " " + numStr.length + " цифр" + "<br>";
+                    }
+        
+                    switch (numStr[i]) {
+                        case '1':
+                            string2 += 'Один ';
+                            break;
+                        case '2':
+                            string2 += 'Два ';
+                            break;
+                        case '3':
+                            string2 += 'Три ';
+                            break;
+                        case '4':
+                            string2 += 'Чотири ';
+                            break;
+                        case '5':
+                            string2 += "П'ять ";
+                            break;
+                        case '6':
+                            string2 += 'Шість ';
+                            break;
+                        case '7':
+                            string2 += 'Сім ';
+                            break;
+                        case '8':
+                            string2 += 'Вісім ';
+                            break;
+                        case '9':
+                            string2 += "Дев'ять ";
+                            break;
+                        case '0':
+                            string2 += 'Нуль ';
+                            break;
+                    }
+                }
+            }
+            answer1.innerHTML = string1;
+            answer2.innerHTML = string2;
+        }
+        </script>
+<center><div>
+    <center><p><b>Привіт! Я вмію рахувати цифри в числі.</b></p></center>
+    <form name="number" action="javascript:number()">
+        Введіть ваше число:<input class="side" name="a" type="text" value="" size="4">
+        <input class="btn" type="submit" value="OK">
+        <input class="btn" type="reset" name="reset" value="Скинути">
+    </form>
+        <span id="answer1"></span><br>
+       В цьому числі такі цифри: <span id="answer2"></span>
+       
+</div></center>
+</body>
+</html>
+</body>
+</html>

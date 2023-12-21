@@ -1,0 +1,48 @@
+body{
+	background-color: blue;
+}
+p{
+	font-size: 70px;
+	color: greenyellow;
+}
+.Kira1{
+	font-family: cursive;
+	text-transform: uppercase;
+	font-family: 'Marck Script', cursive;
+}
+.Kira2{
+	font-weight: normal;
+	font-style: italic;
+	font-variant: small-caps;
+	font-family: 'Rubik 80s Fade', cursive;
+	23
+}
+.Kira3{
+	text-decoration: underline;
+	text-decoration-style: wavy;
+	text-underline-position: under;
+	text-decoration-color: aqua;
+}
+.Kira4{
+	text-decoration: line-through;
+	text-underline-position: unset;
+	text-decoration-color: aqua;
+}
+.Kira5{
+	text-shadow: 5px 7px darkblue;
+}
+.Kira6{
+	text-shadow: 6px 8px 10px aqua, 5px 7px 7px darkblue;
+}
+.Kira7{
+	font-size: 140px;
+}
+.Kira8{
+	font-family: 'Marck Script', cursive;
+	
+	text-decoration-color: aqua;
+	text-shadow: 3px 6px 9px red;
+}
+.Kira9{
+	font-size: 140px;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пошук підрядка</title>
+  <link rel="stylesheet" type="text/css" href="nemWorks.css">
+</head>
+<style type="text/css">
+ 
+</style>
+<body>
+
+<header>
+    <p style="text-align: center; font-size: 40px;" >шукачь підрядків</p>
+</header>
+<main  class="mainStyle">
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+  <button onclick="toggleForm()" class="mainButton" style="margin: center;  ">Пошук підрядків</button>
+</div>
+
+<div id="inputFields" style="display: none; text-align: center; margin-top: 35px;">
+  <label for="fullText">Введіть текст:</label>
+  <input type="text" id="fullText">
+  
+  <label for="searchString">Введіть шуканий підрядок:</label>
+  <input type="text" id="searchString">
+
+  <button onclick="searchSubstring()">Пошук</button>
+</div>
+
+<div id="results" style="display: none;">
+  <p id="resultText"></p>
+  <button onclick="resetForm()">Згорнути</button>
+</div>
+
+<script>
+  function toggleForm() {
+    // Змінити видимість блоків при натисканні кнопки
+    document.getElementById("searchForm").style.display = "none";
+    document.getElementById("inputFields").style.display = "block";
+  }
+
+  function searchSubstring() {
+    var fullText = document.getElementById("fullText").value;
+    var searchString = document.getElementById("searchString").value;
+
+    if (fullText.trim() !== "" && searchString.trim() !== "") {
+      var startPosition = 0;
+      var foundPositions = [];
+
+      while ((startPosition = fullText.indexOf(searchString, startPosition)) !== -1) {
+        foundPositions.push(startPosition);
+        startPosition += searchString.length;
+      }
+
+      var resultText = foundPositions.length > 0 ?
+        "Знайдені підрядки в тексті \"" + fullText + "\":\n" + foundPositions.join(", ") :
+        "Підрядок \"" + searchString + "\" не знайдений в тексті.";
+
+      document.getElementById("resultText").innerText = resultText;
+
+      // Показати результати і змінити видимість блоків
+      document.getElementById("inputFields").style.display = "none";
+      document.getElementById("results").style.display = "block";
+    } else {
+      alert("Ви відмінили введення або не ввели текст або підрядок.");
+    }
+  }
+
+  function resetForm() {
+    // Скинути значення та показати початкову форму
+    document.getElementById("fullText").value = "";
+    document.getElementById("searchString").value = "";
+    document.getElementById("results").style.display = "none";
+    document.getElementById("searchForm").style.display = "block";
+    document.getElementById("inputFields").style.display = "none";
+  }
+</script>
+
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</main>
+
+
+
+
+
+
+</body>
+</html>

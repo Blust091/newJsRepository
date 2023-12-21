@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Перевірка тексту на ключові слова</title>
+  <link rel="stylesheet" type="text/css" href="nemWorks.css">
+ 
+<header>
+    <p style="text-align: center; font-size: 40px;" >Шукае слова безкоштовно або гарантія</p>
+</header>
+<main  class="mainStyle">
+  
+    
+    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+</head>
+<body>
+
+<div id="keywordCheck"  style="margin: center;" class="FirstMainDiv">
+  <button onclick="startKeywordCheck()" class="mainButton" style="margin: center;  ">Перевірити текст</button>
+  <div id="keywordCheckResults" style="display: none;">
+    <!-- Результати перевірки тексту будуть тут -->
+  </div>
+</div>
+
+<script>
+  function hasKeywords(text) {
+    let lowercaseText = text.toLowerCase();
+    return lowercaseText.includes("безкоштовно") || lowercaseText.includes("гарантія");
+  }
+
+  function startKeywordCheck() {
+    let userInput = prompt("Введіть текст:");
+    if (userInput !== null && userInput.trim() !== "") {
+      let result = hasKeywords(userInput);
+      let attemptCount = 1;
+
+      while (!result) {
+        userInput = prompt("Текст не містить слова 'безкоштовно' або 'гарантія'. Спроба №" + attemptCount + "\nВведіть текст:");
+        if (userInput === null || userInput.trim() === "") {
+          alert("Ви відмінили введення або не ввели текст. Завершено спроб: " + attemptCount);
+          break;
+        }
+        
+        result = hasKeywords(userInput);
+        attemptCount++;
+      }
+
+      if (result) {
+        alert("Текст містить слова 'безкоштовно' або 'гарантія'. Загальна кількість спроб: " + attemptCount);
+      }
+    } else {
+      alert("Ви відмінили введення або не ввели текст.");
+    }
+  }
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</body>
+</html>

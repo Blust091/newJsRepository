@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Столиці світу</title>
+    <style>
+        #container {
+            position: relative;
+            width: 1000px;
+            height: 1000px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <canvas id="chessboard" width="400" height="400" style="border:1px solid #000;"></canvas>
+    <canvas id="animationCanvas2" width="400" height="200" style="border:1px solid #000;"></canvas>
+
+<script>
+    let capitals = {
+        "Київ": 2777944,
+        "Варшава": 1793579,
+        "Берлін": 3769495,
+        "Париж": 2140526,
+        "Лондон": 9304016,
+    };
+
+    let sortedByAlphabet = [];
+    for (let capital in capitals) {
+        sortedByAlphabet.push(capital);
+    }
+    sortedByAlphabet.sort();
+
+    document.write("<h2>Сортування за алфавітом</h2>");
+    document.write("<ul>");
+        sortedByAlphabet.forEach(capital => {
+        document.write(`<li>${capital}: ${capitals[capital]}</li>`);
+    });
+    document.write("</ul>");
+
+    let sortedByPopulation = [];
+    for (let capital in capitals) {
+        sortedByPopulation.push({ capital, population: capitals[capital] });
+    }
+    sortedByPopulation.sort((a, b) => a.population - b.population);
+
+    document.write("<h2>Сортування за кількістю населення</h2>");
+    document.write("<ul>");
+    sortedByPopulation.forEach(item => {
+        document.write(`<li>${item.capital}: ${item.population}</li>`);
+    });
+    document.write("</ul>");
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function getRandomColor() {
+        let r = getRandomNumber(0, 255);
+        let g = getRandomNumber(0, 255);
+        let b = getRandomNumber(0, 255);
+        return `rgb(${r},${g},${b})`;
+    }
+
+    function drawRandomTriangle(container, color) {
+        let svgNS = "http://www.w3.org/2000/svg";
+        let svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("width", "100%");
+        svg.setAttribute("height", "100%");
+        svg.style.position = "absolute";
+
+        let points = [];
+        for (let i = 0; i < 3; i++) {
+            let x = getRandomNumber(0, 1000);
+            let y = getRandomNumber(0, 1000);
+            points.push(`${x},${y}`);
+        }
+
+        let polygon = document.createElementNS(svgNS, "polygon");
+        polygon.setAttribute("points", points.join(" "));
+        polygon.setAttribute("fill", color);
+
+        svg.appendChild(polygon);
+        container.appendChild(svg);
+    }
+    let numberOfTriangles = 10;
+    let container = document.getElementById("container");
+    for (let i = 0; i < numberOfTriangles; i++) {
+        let randomColor = getRandomColor();
+        drawRandomTriangle(container, randomColor);
+    }
+    let canvas = document.getElementById('chessboard');
+    let ctx = canvas.getContext('2d');
+
+    let squareSize = 50; 
+    let rows = 8;      
+    let cols = 8;       
+
+    function drawChessboard() {
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                let x = col * squareSize;
+                let y = row * squareSize;
+                let isBlack = (row + col) % 2 === 1;
+                ctx.fillStyle = isBlack ? '#000' : '#fff';
+                ctx.fillRect(x, y, squareSize, squareSize);
+                ctx.strokeStyle = '#000';
+                ctx.strokeRect(x, y, squareSize, squareSize);
+            }
+        }
+    }
+    drawChessboard();
+
+    const canvas2 = document.getElementById('animationCanvas2');
+    const ctx2 = canvas2.getContext('2d');
+
+    const image2 = new Image();
+    image2.src = 'https://www.meme-arsenal.com/memes/1d46c889c95dad559fd46706b66d824d.jpg'; 
+    let x2 = 0; 
+
+    function drawImage2() {
+        ctx2.clearRect(0, 0, canvas2.width, canvas2.height); 
+        ctx2.drawImage(image2, x2, 75, 50, 50); 
+        x2 += 5; 
+        if (x2 > canvas2.width) {
+            x2 = -50; 
+        }
+    }
+
+    setInterval(drawImage2, 30); 
+    
+</script>
+
+</body>
+</html>

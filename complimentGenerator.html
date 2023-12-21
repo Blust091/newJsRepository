@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генератор компліментів</title>
+  <link rel="stylesheet" type="text/css" href="nemWorks.css">
+ 
+<header>
+    <p style="text-align: center; font-size: 40px;" >Complements genetaror</p>
+</header>
+<main  class="mainStyle">
+  
+    
+    
+    <link rel="stylesheet" type="text/css" href="nemWorks.css">
+  </head>
+  <style type="text/css">
+   
+  </style>
+  <body>
+
+<div id="complimentGenerator"  style="margin: center;" class="FirstMainDiv">
+  <button onclick="generateCompliments()" class="mainButton" style="margin: center;  ">Згенерувати компліменти</button>
+  <div id="complimentResults" style="display: none;">
+    <!-- Результати генерації компліментів будуть тут -->
+  </div>
+</div>
+
+<script>
+  function generateCompliments() {
+    let many = prompt("Скільки компліментів вам потрібно?", 10);
+    let complements = ["cute","brave","clever","smart","polite","clever","perfect","kind","friendly","lucky","justy","idk"];
+    let anymals = ["fenec","monkay","hipopotamus","frog","pig","phoenix","turtle","penguin","behemoth","fox","chicken"];
+
+    let complimentResults = document.getElementById("complimentResults");
+    complimentResults.innerHTML = "<ul>";
+
+    for (let i = 0; i < many; i++) {
+      let randCompliment = Math.floor(Math.random() * complements.length);
+      let randAnimal = Math.floor(Math.random() * anymals.length);
+      let colorCompliment = getRandomColor();
+      let colorAnimal = getRandomColor();
+      let combination = `<li style="color: ${colorCompliment}; display: inline;">${i + 1}. You are so <strong>${complements[randCompliment]}</strong></li>`;
+      combination += `<li style="color: ${colorAnimal}; display: inline;"> as <em>${anymals[randAnimal]}</em></li>`;
+      complimentResults.innerHTML += combination;
+      if (i < many - 1) {
+        complimentResults.innerHTML += "<br>";
+      }
+    }
+
+    complimentResults.innerHTML += "</ul>";
+
+    // Показати результати і змінити видимість блоків
+    complimentResults.style.display = "block";
+  }
+
+  function getRandomColor() {
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+</script>
+<div id="searchForm" style="margin: center;" class="FirstMainDiv">
+    <a href="newWorks.html"> <button  class="mainButton" style="margin: center;  "> return</button></a>
+  </div>
+
+</body>
+</html>
